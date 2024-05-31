@@ -70,6 +70,7 @@ fun main() {
                     equipoId = equipo
                 )
                 jugadorCRUD.create(nuevoJugador)
+                println("Jugador creado!")
 
                 val equipos = listaEquipos.find { it.id == equipo }
                 if (equipos != null) {
@@ -115,6 +116,7 @@ fun main() {
                 println("Ingrese el N. del jugador que desea eliminar:")
                 val jugadorId = scanner.nextInt()
                 jugadorCRUD.delete(jugadorId)
+                println("Jugador eliminado correctamente!")
             }
             7 -> {
 //                Ingresar nuevo equipo
@@ -132,6 +134,7 @@ fun main() {
                     puntos = puntos,
                 )
                 equipoCRUD.createEquipo(nuevoEquipo)
+                println("Equipo creado correctamente!")
             }
             8 -> {
 //                Modificar equipo
@@ -161,9 +164,11 @@ fun main() {
                 println("Ingrese el N. del equipo que desea eliminar:")
                 val equipoId = scanner.nextInt()
                 equipoCRUD.deleteEquipo(equipoId)
+                println("Equipo eliminado correctamente")
             }
             10 -> {
 //                Salir
+                println("Adios!")
                 break;
             }
             else -> continue
