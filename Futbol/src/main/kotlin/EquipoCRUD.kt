@@ -45,6 +45,26 @@ class EquipoCRUD(private val equipoCsvFile: String, private val jugadorCRUD: Jug
         }
     }
 
+    fun updateEquipoPuntos(equipoId: Int, resultado: Resultado) {
+        val equipos = readEquipos().toMutableList()
+        val index = equipos.indexOfFirst { it.id == equipoId }
+        if (index != -1) {
+            val equipo = equipos[index]
+            var nuevosPuntos=0;
+            if(resultado.equals(Resultado.Victoria)){
+                nuevosPuntos=3
+            } else if (resultado.equals(Resultado.Empate)){
+                nuevosPuntos=1
+            }else{
+                nuevosPuntos=0
+            }
+            val puntajeActual = equipo.puntos
+            val equipoActualizado = equipo.copy(puntos = nuevosPuntos+puntajeActual)
+            equipos[index] = equipoActualizado
+            saveAllEquipos(equipos)
+        }
+    }
+
     fun deleteEquipo(id: Int) {
         val equipos = readEquipos().filter { it.id != id }
         saveAllEquipos(equipos)

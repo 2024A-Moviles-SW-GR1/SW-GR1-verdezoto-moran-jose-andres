@@ -23,8 +23,8 @@ data class Jugador(
                 "Nacionalidad: " + nacionalidad.capitalize() + "\n" +
                 "Posicion: " + posicion + "\n" +
                 "Dorsal: " + dorsal + "\n" +
-                "Titular: " + if(titular) "Si" else "No" + "\n" +
-                "Equipo: " + equipoNombre
+                "Equipo: " + equipoNombre + "\n" +
+                "Titular: " + if(titular) "Si" else "No" + "\n"
     }
 
     private fun obtenerNombreEquipo(equipoId: Int): String {
